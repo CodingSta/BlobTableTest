@@ -41,7 +41,7 @@ namespace MinGyu.Function
                 TableQuery.CombineFilters(filterA, TableOperators.And, filterB)
             );
             TableContinuationToken tokenA = null;
-            rangeQ.TakeCount = 10000;
+            rangeQ.TakeCount = 1000;
             JArray resultArr = new JArray();
             try
             {
@@ -52,7 +52,7 @@ namespace MinGyu.Function
                     foreach (MemoData entity in segment)
                     {
                         JObject srcObj = JObject.FromObject(entity);
-                        srcObj.Remove("Timestamp");
+                        //srcObj.Remove("Timestamp");
                         resultArr.Add(srcObj);
                     }
                 } while (tokenA != null);
